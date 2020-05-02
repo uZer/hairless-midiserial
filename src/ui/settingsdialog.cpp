@@ -1,6 +1,8 @@
 #include "settingsdialog.h"
-#include "ui_settingsdialog.h"
+//#include "ui_settingsdialog.h"
 #include "Settings.h"
+
+#include <QtWidgets/QComboBox>
 
 static void selectByData(QComboBox *box, int dataValue) {
   for(int i = 0; i < box->count(); i++) {
