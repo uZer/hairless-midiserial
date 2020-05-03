@@ -31,6 +31,18 @@ Options:
   -o, --midi-out <midi-out>  Specify the name of MIDI out device to use
 ```
 
+For example:
+
+```
+$ ./hairless-midiserial -w -c -d \
+    -s /dev/cu.usbserial-A105J2JO \
+    -o "IAC Driver IAC Bus 1" \
+    -i "IAC Driver IAC Bus 2"
+Opening serial port '/dev/cu.usbserial-A105J2JO'...
+Opening MIDI Out port #0
+Opening MIDI In port #1
+```
+
 ### Compiled with newer Qt
 
 - Dark theme support on macOS, higher resolution window
