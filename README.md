@@ -4,9 +4,15 @@ Hairless MIDI<->Serial Bridge is the easiest way to connect serial devices (like
 
 ## Things added by this fork
 
-- Command-line options to set debug flag, serial device and MIDI ports.
-- Output debug MIDI messages to console (`-c`, `--console-output`)
-- Optionally hide the GUI (`-i`, `--invisible`)
+### 1. Command-line support
+
+- Command-line options to set debug flag (`d`, `--debug`), serial device (`-s`, `--serial`) and MIDI ports.
+- Output messages to console (`-c`, `--console-output`)
+- Ability to hide the GUI (`-i`, `--invisible`)
+
+### 2. Compiled with newer Qt
+
+- Dark theme support on macOS
 
 ## Building Hairless Bridge from source
 

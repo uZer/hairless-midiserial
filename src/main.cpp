@@ -24,12 +24,19 @@ int main(int argc, char *argv[])
     QCommandLineOption hideWindowOption(QStringList() << "i" << "hide-window",
                                         "Hides the GUI");
     parser.addOption(hideWindowOption);
+
+    QCommandLineOption serialPortOption(QStringList() << "s" << "serial",
+                                        "Specify the name of the serial device to use", "serial");
+    parser.addOption(serialPortOption);
     parser.process(a);
 
     if(parser.isSet(showDebugOption)) {
         Settings::setDebug(true);
     }
     Settings::setConsoleOutput(parser.isSet(consoleOutputOption));
+    if(parser.isSet(serialPortOption)) {
+        Settings::setLastSerialPort(parser.value(serialPortOption));
+    }
     MainWindow w;
     if(!parser.isSet(hideWindowOption)) {
         w.show();
