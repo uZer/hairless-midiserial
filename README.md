@@ -2,17 +2,38 @@
 
 Hairless MIDI<->Serial Bridge is the easiest way to connect serial devices (like Arduinos) to send and receive MIDI signals. This is a fork of the [original project](http://projectgus.github.com/hairless-midiserial/) which adds additional functionality.
 
+**This fork has only been tested with macOS Mojave!**
+
 ## Things added by this fork
 
-### 1. Command-line support
+### Command-line support
 
-- Command-line options to set debug flag (`d`, `--debug`), serial device (`-s`, `--serial`) and MIDI ports.
-- Output messages to console (`-c`, `--console-output`)
-- Ability to hide the GUI (`-i`, `--invisible`)
+- Command-line options to set debug mode, serial device and MIDI ports.
+- Output messages to console.
+- Ability to hide the GUI.
 
-### 2. Compiled with newer Qt
+#### Command-line options
 
-- Dark theme support on macOS
+```sh
+$ ./hairless-midiserial -h
+Usage: ./hairless-midiserial [options]
+Sends and receives MIDI events over a serial device.
+
+Options:
+  -h, --help                 Displays help on commandline options.
+  --help-all                 Displays help including Qt specific options.
+  -v, --version              Displays version information.
+  -d, --debug                Show debug MIDI messages
+  -c, --console-output       Output messages to the console
+  -w, --hide-window          Hides the GUI
+  -s, --serial <serial>      Specify the name of the serial device to use
+  -i, --midi-in <midi-in>    Specify the name of MIDI in device to use
+  -o, --midi-out <midi-out>  Specify the name of MIDI out device to use
+```
+
+### Compiled with newer Qt
+
+- Dark theme support on macOS, higher resolution window
 
 ## Building Hairless Bridge from source
 

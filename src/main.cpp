@@ -21,21 +21,33 @@ int main(int argc, char *argv[])
     QCommandLineOption consoleOutputOption(QStringList() << "c" << "console-output",
                                        "Output messages to the console");
     parser.addOption(consoleOutputOption);
-    QCommandLineOption hideWindowOption(QStringList() << "i" << "hide-window",
+    QCommandLineOption hideWindowOption(QStringList() << "w" << "hide-window",
                                         "Hides the GUI");
     parser.addOption(hideWindowOption);
 
     QCommandLineOption serialPortOption(QStringList() << "s" << "serial",
                                         "Specify the name of the serial device to use", "serial");
     parser.addOption(serialPortOption);
-    parser.process(a);
+    QCommandLineOption midiInOption(QStringList() << "i" << "midi-in",
+                                        "Specify the name of MIDI in device to use", "midi-in");
+    parser.addOption(midiInOption);
+    QCommandLineOption midiOutOption(QStringList() << "o" << "midi-out",
+                                        "Specify the name of MIDI out device to use", "midi-out");
+    parser.addOption(midiOutOption);
 
+    parser.process(a);
     if(parser.isSet(showDebugOption)) {
         Settings::setDebug(true);
     }
     Settings::setConsoleOutput(parser.isSet(consoleOutputOption));
     if(parser.isSet(serialPortOption)) {
         Settings::setLastSerialPort(parser.value(serialPortOption));
+    }
+    if(parser.isSet(midiInOption)) {
+        Settings::setLastMidiIn(parser.value(midiInOption));
+    }
+    if(parser.isSet(midiOutOption)) {
+        Settings::setLastMidiOut(parser.value(midiOutOption));
     }
     MainWindow w;
     if(!parser.isSet(hideWindowOption)) {
