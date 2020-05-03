@@ -52,7 +52,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="resources.qrc">:/images/images/arrows.png</pixmap>
+     <pixmap>:/images/images/arrows.png</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label">
@@ -184,7 +184,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="resources.qrc">:/images/images/led-off.png</pixmap>
+     <pixmap>:/images/images/led-off.png</pixmap>
     </property>
    </widget>
    <widget class="BlinkenLight" name="led_midiout">
@@ -200,7 +200,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="resources.qrc">:/images/images/led-off.png</pixmap>
+     <pixmap>:/images/images/led-off.png</pixmap>
     </property>
    </widget>
    <widget class="BlinkenLight" name="led_midiin">
@@ -216,7 +216,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="resources.qrc">:/images/images/led-off.png</pixmap>
+     <pixmap>:/images/images/led-off.png</pixmap>
     </property>
    </widget>
   </widget>
@@ -226,7 +226,7 @@
      <x>0</x>
      <y>0</y>
      <width>604</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -281,8 +281,6 @@
   <tabstop>chk_debug</tabstop>
   <tabstop>lst_debug</tabstop>
  </tabstops>
- <resources>
-  <include location="resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

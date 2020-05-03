@@ -1,5 +1,5 @@
 #include "settingsdialog.h"
-//#include "ui_settingsdialog.h"
+#include "ui_settingsdialog.h"
 #include "Settings.h"
 
 #include <QtWidgets/QComboBox>

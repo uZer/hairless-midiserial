@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui widgets
 
 TARGET = hairless-midiserial
 TEMPLATE = app
@@ -40,7 +40,7 @@ INCLUDEPATH += src/
 # Universal binary for OS X
 
 macx {
-    CONFIG += ppc x86
+    CONFIG += ppc x86_64
 }
 
 
