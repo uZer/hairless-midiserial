@@ -5,6 +5,8 @@
 #include "settingsdialog.h"
 #include "aboutdialog.h"
 
+#include <QTextStream>
+
 const int LIST_REFRESH_RATE =20; // Hz
 
 static void selectIfAvailable(QComboBox *box, QString itemText)
@@ -224,6 +226,11 @@ void MainWindow::onDisplayMessage(QString message)
 
 void MainWindow::onDebugMessage(QString message)
 {
+    if(consoleDebug)
+    {
+        QTextStream out(stdout);
+        out << message << endl;
+    }
     if(ui->chk_debug->isChecked())
         onDisplayMessage(message);
 }
@@ -257,4 +264,9 @@ void MainWindow::resizeEvent(QResizeEvent *)
 void MainWindow::setDebugFromCommandLine(bool showDebug)
 {
     ui->chk_debug->setCheckState(showDebug ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
+}
+
+void MainWindow::setConsoleDebugFromCommandLine(bool c)
+{
+    this->consoleDebug = c;
 }

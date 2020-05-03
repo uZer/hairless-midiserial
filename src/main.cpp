@@ -2,8 +2,6 @@
 #include <QCommandLineParser>
 #include "ui/mainwindow.h"
 
-#include <QTextStream>
-
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -17,20 +15,21 @@ int main(int argc, char *argv[])
     parser.addHelpOption();
     parser.addVersionOption();
     QCommandLineOption showDebugOption(QStringList() << "d" << "debug",
-                                       QCoreApplication::translate("main", "Show debug MIDI messages"));
+                                       "Show debug MIDI messages");
     parser.addOption(showDebugOption);
+    QCommandLineOption consoleOutputOption(QStringList() << "c" << "console-debug",
+                                       "Output debug messages to the console");
+    parser.addOption(consoleOutputOption);
     parser.process(a);
-
-//    QTextStream out(stdout);
-//    out << QString("Hello, World!") << endl;
 
 
     MainWindow w;
-
     if(parser.isSet(showDebugOption)) {
         w.setDebugFromCommandLine(true);
     }
-
+    if(parser.isSet(consoleOutputOption)) {
+        w.setConsoleDebugFromCommandLine(true);
+    }
     w.show();
     return a.exec();
 }
