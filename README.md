@@ -39,7 +39,7 @@ Options:
 
 Hairless uses git submodules for library dependencies, so you should use `git clone --recursive URL` when cloning from Github. Alternatively, you can run `git submodule update --init` in order to fetch the submodules to an already-cloned directory.
 
-Hairless Midiserial Bridge release 0.5 was built with Qt 5.12.
+Hairless Midiserial Bridge release 0.5 was built with Qt 5.14.
 
 The Qt package should contain all dependencies, the graphical IDE "Qt Creator" or the program "qmake" can be used to compile the project hairless-midiserial.pro.
 
