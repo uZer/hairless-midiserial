@@ -26,6 +26,8 @@ public:
 
     void resizeEvent(QResizeEvent *);
 
+    void setDebugFromCommandLine(bool showDebug);
+
 private:
     Ui::MainWindow *ui;
     Bridge *bridge;

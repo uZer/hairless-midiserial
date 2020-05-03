@@ -24,9 +24,13 @@ int main(int argc, char *argv[])
 //    QTextStream out(stdout);
 //    out << QString("Hello, World!") << endl;
 
-    bool showDebug = parser.isSet(showDebugOption);
 
     MainWindow w;
+
+    if(parser.isSet(showDebugOption)) {
+        w.setDebugFromCommandLine(true);
+    }
+
     w.show();
     return a.exec();
 }

@@ -254,3 +254,7 @@ void MainWindow::resizeEvent(QResizeEvent *)
     lst->setGeometry(geo);
 }
 
+void MainWindow::setDebugFromCommandLine(bool showDebug)
+{
+    ui->chk_debug->setCheckState(showDebug ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
+}
