@@ -5,8 +5,8 @@ Hairless MIDI<->Serial Bridge is the easiest way to connect serial devices (like
 ## Things added by this fork
 
 - Command-line options to set debug flag, serial device and MIDI ports.
-- Output debug MIDI messages to console (`--console-debug`)
-- Optionally hide the GUI (`--invisible`)
+- Output debug MIDI messages to console (`-c`, `--console-output`)
+- Optionally hide the GUI (`-i`, `--invisible`)
 
 ## Building Hairless Bridge from source
 

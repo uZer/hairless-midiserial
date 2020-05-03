@@ -27,7 +27,7 @@ public:
     void resizeEvent(QResizeEvent *);
 
     void setDebugFromCommandLine(bool showDebug);
-    void setConsoleDebugFromCommandLine(bool consoleDebug);
+    void setConsoleOutputFromCommandLine(bool consoleOutput);
 
 private:
     Ui::MainWindow *ui;
@@ -38,7 +38,7 @@ private:
     int scrollbackSize;
     QTimer debugListTimer;
     QStringList debugListMessages;
-    bool consoleDebug = false;
+    bool consoleOutput = false;
 
     void refresh();
     void refreshSerial();

@@ -217,6 +217,11 @@ void MainWindow::onValueChanged()
 
 void MainWindow::onDisplayMessage(QString message)
 {
+    if(Settings::getConsoleOutput())
+    {
+        QTextStream out(stdout);
+        out << message << endl;
+    }
     if(debugListMessages.size() == scrollbackSize)
         debugListMessages.removeFirst();
     debugListMessages.append(message);
@@ -226,11 +231,6 @@ void MainWindow::onDisplayMessage(QString message)
 
 void MainWindow::onDebugMessage(QString message)
 {
-    if(consoleDebug)
-    {
-        QTextStream out(stdout);
-        out << message << endl;
-    }
     if(ui->chk_debug->isChecked())
         onDisplayMessage(message);
 }
@@ -266,7 +266,7 @@ void MainWindow::setDebugFromCommandLine(bool showDebug)
     ui->chk_debug->setCheckState(showDebug ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
 }
 
-void MainWindow::setConsoleDebugFromCommandLine(bool c)
+void MainWindow::setConsoleOutputFromCommandLine(bool c)
 {
-    this->consoleDebug = c;
+    this->consoleOutput = c;
 }

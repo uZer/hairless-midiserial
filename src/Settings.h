@@ -24,6 +24,9 @@ public:
     static bool getDebug() { return QSettings().value("debug", false).toBool(); }
     static void setDebug(bool debug) { QSettings().setValue("debug", debug); }
 
+    static bool getConsoleOutput() { return QSettings().value("consoleOutput", false).toBool(); }
+    static void setConsoleOutput(bool consoleOutput) { QSettings().setValue("consoleOutput", consoleOutput); }
+
     static PortSettings getPortSettings() {
         PortSettings result;
         QSettings settings;

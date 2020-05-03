@@ -1,6 +1,7 @@
 #include <QtWidgets/QApplication>
 #include <QCommandLineParser>
 #include "ui/mainwindow.h"
+#include "Settings.h"
 
 int main(int argc, char *argv[])
 {
@@ -17,19 +18,22 @@ int main(int argc, char *argv[])
     QCommandLineOption showDebugOption(QStringList() << "d" << "debug",
                                        "Show debug MIDI messages");
     parser.addOption(showDebugOption);
-    QCommandLineOption consoleOutputOption(QStringList() << "c" << "console-debug",
-                                       "Output debug messages to the console");
+    QCommandLineOption consoleOutputOption(QStringList() << "c" << "console-output",
+                                       "Output messages to the console");
     parser.addOption(consoleOutputOption);
     parser.process(a);
 
-
-    MainWindow w;
     if(parser.isSet(showDebugOption)) {
-        w.setDebugFromCommandLine(true);
+        Settings::setDebug(true);
     }
     if(parser.isSet(consoleOutputOption)) {
-        w.setConsoleDebugFromCommandLine(true);
+        Settings::setConsoleOutput(true);
+    } else {
+        Settings::setConsoleOutput(false);
     }
+
+    MainWindow w;
+
     w.show();
     return a.exec();
 }
