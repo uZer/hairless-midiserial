@@ -21,19 +21,18 @@ int main(int argc, char *argv[])
     QCommandLineOption consoleOutputOption(QStringList() << "c" << "console-output",
                                        "Output messages to the console");
     parser.addOption(consoleOutputOption);
+    QCommandLineOption hideWindowOption(QStringList() << "i" << "hide-window",
+                                        "Hides the GUI");
+    parser.addOption(hideWindowOption);
     parser.process(a);
 
     if(parser.isSet(showDebugOption)) {
         Settings::setDebug(true);
     }
-    if(parser.isSet(consoleOutputOption)) {
-        Settings::setConsoleOutput(true);
-    } else {
-        Settings::setConsoleOutput(false);
-    }
-
+    Settings::setConsoleOutput(parser.isSet(consoleOutputOption));
     MainWindow w;
-
-    w.show();
+    if(!parser.isSet(hideWindowOption)) {
+        w.show();
+    }
     return a.exec();
 }
