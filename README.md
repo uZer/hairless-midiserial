@@ -6,11 +6,16 @@ Hairless MIDI<->Serial Bridge is the easiest way to connect serial devices (like
 
 ## Things added by this fork
 
+###
+
+- Serialise MIDI data in a compatible format for the EverDrive PRO.
+
 ### Command-line support
 
 - Command-line options to set debug mode, serial device and MIDI ports.
 - Output messages to console.
 - Ability to hide the GUI.
+- Ability to enable EverDrive PRO mode
 
 #### Command-line options
 
@@ -29,6 +34,7 @@ Options:
   -s, --serial <serial>      Specify the name of the serial device to use
   -i, --midi-in <midi-in>    Specify the name of MIDI in device to use
   -o, --midi-out <midi-out>  Specify the name of MIDI out device to use
+  -p, --everdrive-pro        Enable EverDrive PRO mode
 ```
 
 For example:
