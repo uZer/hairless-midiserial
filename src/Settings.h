@@ -27,6 +27,9 @@ public:
     static bool getConsoleOutput() { return QSettings().value("consoleOutput", false).toBool(); }
     static void setConsoleOutput(bool consoleOutput) { QSettings().setValue("consoleOutput", consoleOutput); }
 
+    static bool getEverDriveProMode() { return QSettings().value("everDriveProMode", false).toBool(); }
+    static void setEverDriveProMode(bool everDriveProMode) { QSettings().setValue("everDriveProMode", everDriveProMode); }
+
     static PortSettings getPortSettings() {
         PortSettings result;
         QSettings settings;

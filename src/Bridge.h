@@ -28,7 +28,7 @@ class Bridge : public QObject
     Q_OBJECT
 public:
     explicit Bridge();
-    void attach(QString serialName, PortSettings serialSettings, int midiInPort, int midiOutPort, QThread *workerThread);
+    void attach(QString serialName, PortSettings serialSettings, int midiInPort, int midiOutPort, QThread *workerThread, bool everDriveProMode);
 
     // Destroying an existing Bridge will cleanup state & release all ports
     ~Bridge();
@@ -66,6 +66,7 @@ private:
     QextSerialPort *serial;
     PortLatency *latency;
     QTime attachTime;
+    bool everDriveProMode;
 
 
 };

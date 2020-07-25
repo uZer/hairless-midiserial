@@ -212,7 +212,7 @@ void MainWindow::onValueChanged()
     connect(bridge, SIGNAL(midiReceived()), ui->led_midiin, SLOT(blinkOn()));
     connect(bridge, SIGNAL(midiSent()), ui->led_midiout, SLOT(blinkOn()));
     connect(bridge, SIGNAL(serialTraffic()), ui->led_serial, SLOT(blinkOn()));
-    bridge->attach(ui->cmbSerial->itemData(ui->cmbSerial->currentIndex()).toString(), Settings::getPortSettings(), midiIn, midiOut, workerThread);
+    bridge->attach(ui->cmbSerial->itemData(ui->cmbSerial->currentIndex()).toString(), Settings::getPortSettings(), midiIn, midiOut, workerThread, Settings::getEverDriveProMode());
 }
 
 void MainWindow::onDisplayMessage(QString message)

@@ -97,6 +97,8 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->spn_scrollback->setValue( Settings::getScrollbackSize() );
+    ui->chk_EverDriveProMode->setCheckState(
+        Settings::getEverDriveProMode() ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
 
     PortSettings port = Settings::getPortSettings();
     populateBaudRate(ui->cmb_baud, port.BaudRate);
@@ -120,6 +122,7 @@ static int currentData(QComboBox *box) {
 void SettingsDialog::accept()
 {
     Settings::setScrollbackSize(ui->spn_scrollback->value());
+    Settings::setEverDriveProMode(ui->chk_EverDriveProMode->checkState() == Qt::CheckState::Checked);
     PortSettings port;
     port.BaudRate = (BaudRateType) currentData( ui->cmb_baud );
     port.DataBits = (DataBitsType) currentData( ui->cmb_dataBits );

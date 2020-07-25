@@ -78,9 +78,10 @@ Bridge::Bridge() :
 {
 }
 
-void Bridge::attach(QString serialName, PortSettings serialSettings, int midiInPort, int midiOutPort, QThread *workerThread)
+void Bridge::attach(QString serialName, PortSettings serialSettings, int midiInPort, int midiOutPort, QThread *workerThread, bool everDriveProMode)
 {
     this->moveToThread(workerThread);
+    this->everDriveProMode = everDriveProMode;
     if(serialName.length() && serialName != TEXT_NOT_CONNECTED) {
         // Latency fixups
         latency = new PortLatency(serialName);
@@ -146,7 +147,35 @@ void Bridge::onMidiIn(double timeStamp, QByteArray message)
     QString description = describeMIDI(message);
     emit debugMessage(applyTimeStamp(QString("MIDI In: %1").arg(description)));
     emit midiReceived();
+
     if(serial && serial->isOpen()) {
+        if(everDriveProMode) {
+            QByteArray headerData;
+            headerData.append(0x2b);
+            headerData.append(0xd4);
+            headerData.append(0x1a);
+            headerData.append(0xe5);
+            headerData.append(0x01);
+            headerData.append(0x81);
+            headerData.append((char)0x00);
+            headerData.append((char)0x00);
+
+            char length_bytes[4];
+            length_bytes[0] = (message.length() >> 24) & 0xFF;
+            length_bytes[1] = (message.length() >> 16) & 0xFF;
+            length_bytes[2] = (message.length() >> 8) & 0xFF;
+            length_bytes[3] = message.length() & 0xFF;
+
+            headerData.append(length_bytes[0]);
+            headerData.append(length_bytes[1]);
+            headerData.append(length_bytes[2]);
+            headerData.append(length_bytes[3]);
+
+            headerData.append((char)0x00);
+
+            message.prepend(headerData);
+        }
+
         serial->write(message);
         emit serialTraffic();
     }

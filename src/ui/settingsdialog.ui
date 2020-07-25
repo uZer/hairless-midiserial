@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>379</width>
-    <height>403</height>
+    <width>370</width>
+    <height>440</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>360</y>
+     <x>10</x>
+     <y>400</y>
      <width>341</width>
      <height>32</height>
     </rect>
@@ -35,7 +35,7 @@
      <x>20</x>
      <y>10</y>
      <width>331</width>
-     <height>241</height>
+     <height>231</height>
     </rect>
    </property>
    <property name="title">
@@ -45,9 +45,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>20</y>
+      <y>30</y>
       <width>311</width>
-      <height>181</height>
+      <height>151</height>
      </rect>
     </property>
     <layout class="QFormLayout" name="formLayout">
@@ -109,8 +109,8 @@
    <widget class="QPushButton" name="btn_defaults">
     <property name="geometry">
      <rect>
-      <x>172</x>
-      <y>210</y>
+      <x>180</x>
+      <y>190</y>
       <width>141</width>
       <height>28</height>
      </rect>
@@ -124,7 +124,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>270</y>
+     <y>320</y>
      <width>331</width>
      <height>71</height>
     </rect>
@@ -135,9 +135,9 @@
    <widget class="QWidget" name="formLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>20</y>
-      <width>321</width>
+      <x>10</x>
+      <y>30</y>
+      <width>311</width>
       <height>31</height>
      </rect>
     </property>
@@ -169,6 +169,32 @@
       </widget>
      </item>
     </layout>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_3">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>250</y>
+     <width>331</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Advanced</string>
+   </property>
+   <widget class="QCheckBox" name="chk_EverDriveProMode">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>311</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>EverDrive PRO mode</string>
+    </property>
    </widget>
   </widget>
  </widget>
