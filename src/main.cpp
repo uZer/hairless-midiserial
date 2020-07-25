@@ -34,12 +34,18 @@ int main(int argc, char *argv[])
     QCommandLineOption midiOutOption(QStringList() << "o" << "midi-out",
                                         "Specify the name of MIDI out device to use", "midi-out");
     parser.addOption(midiOutOption);
+    QCommandLineOption everDriveProModeOption(QStringList() << "p" << "everdrive-pro",
+                                        "Enable EverDrive PRO mode");
+    parser.addOption(everDriveProModeOption);
 
     parser.process(a);
     if(parser.isSet(showDebugOption)) {
         Settings::setDebug(true);
     }
     Settings::setConsoleOutput(parser.isSet(consoleOutputOption));
+    if(parser.isSet(everDriveProModeOption)) {
+        Settings::setEverDriveProMode(true);
+    }
     if(parser.isSet(serialPortOption)) {
         Settings::setLastSerialPort(parser.value(serialPortOption));
     }
