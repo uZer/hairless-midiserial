@@ -8,3 +8,4 @@ hairless-midiserial
 Makefile
 *#
 *.autosave
+.qmake.stash
